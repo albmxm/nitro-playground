@@ -1,3 +1,5 @@
+package com.margelo.nitro.nitromath
+
 class HybridMath : HybridMathSpec() {
   override val memorySize: Long
     get() = 0L
