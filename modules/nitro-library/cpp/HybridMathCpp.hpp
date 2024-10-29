@@ -8,7 +8,7 @@ namespace margelo::nitro::nitromath
   {
   public:
     HybridMathCpp() : HybridObject(TAG) {}
-    ~HybridMathCpp();
+
     double add(double a, double b) override;
   };
 }
