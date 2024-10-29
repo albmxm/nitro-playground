@@ -4,7 +4,9 @@
 
 namespace margelo::nitro::nitromath
 {
-  int add(int a, int b)
+  HybridMathCpp::~HybridMathCpp() = default;
+
+  double HybridMathCpp::add(double a, double b)
   {
     return a + b;
   }

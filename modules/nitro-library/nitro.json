@@ -11,6 +11,9 @@
     "Math": {
       "swift": "HybridMath",
       "kotlin": "HybridMath"
+    },
+    "MathCpp": {
+      "cpp": "HybridMathCpp"
     }
   },
   "ignorePaths": ["node_modules"]

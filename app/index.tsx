@@ -1,5 +1,5 @@
 import { Button, View } from "react-native";
-import { Math } from "nitro-library";
+import { MathCpp } from "nitro-library";
 
 export default function Index() {
   return (
@@ -13,8 +13,7 @@ export default function Index() {
       <Button
         title="Run Nitro library"
         onPress={() => {
-          // console.log(MathCpp.add(1, 2));
-          console.log(Math.add(1, 2));
+          console.log(MathCpp.add(1, 2));
         }}
       ></Button>
     </View>

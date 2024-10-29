@@ -13,6 +13,7 @@
 
 #include "JHybridMathSpec.hpp"
 #include <NitroModules/JNISharedPtr.hpp>
+#include "HybridMathCpp.hpp"
 
 namespace margelo::nitro::nitromath {
 
@@ -40,6 +41,15 @@ int initialize(JavaVM* vm) {
     #endif
         auto globalRef = jni::make_global(instance);
         return JNISharedPtr::make_shared_from_jni<JHybridMathSpec>(globalRef);
+      }
+    );
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "MathCpp",
+      []() -> std::shared_ptr<HybridObject> {
+        static_assert(std::is_default_constructible_v<HybridMathCpp>,
+                      "The HybridObject \"HybridMathCpp\" is not default-constructible! "
+                      "Create a public constructor that takes zero arguments to be able to autolink this HybridObject.");
+        return std::make_shared<HybridMathCpp>();
       }
     );
   });

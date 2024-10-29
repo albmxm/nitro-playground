@@ -11,6 +11,7 @@
 #import <type_traits>
 
 #include "HybridMathSpecSwift.hpp"
+#include "HybridMathCpp.hpp"
 
 @interface NitroMathAutolinking : NSObject
 @end
@@ -26,6 +27,15 @@
     []() -> std::shared_ptr<HybridObject> {
       std::shared_ptr<margelo::nitro::nitromath::HybridMathSpec> hybridObject = NitroMath::NitroMathAutolinking::createMath();
       return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "MathCpp",
+    []() -> std::shared_ptr<HybridObject> {
+      static_assert(std::is_default_constructible_v<HybridMathCpp>,
+                    "The HybridObject \"HybridMathCpp\" is not default-constructible! "
+                    "Create a public constructor that takes zero arguments to be able to autolink this HybridObject.");
+      return std::make_shared<HybridMathCpp>();
     }
   );
 }

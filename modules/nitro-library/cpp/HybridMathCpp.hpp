@@ -1,6 +1,14 @@
 #pragma once
 
+#include "HybridMathCppSpec.hpp"
+
 namespace margelo::nitro::nitromath
 {
-  int add(int a, int b);
+  class HybridMathCpp : public HybridMathCppSpec
+  {
+  public:
+    HybridMathCpp() : HybridObject(TAG) {}
+    ~HybridMathCpp();
+    double add(double a, double b) override;
+  };
 }
